@@ -1,15 +1,13 @@
 def gen_prime(n):
 	if(isinstance(n,int)):
 		is_prime=1
+		possible_primes=[i for i in range(n+1) if (i==2) or (i>1 and i%2!=0)]
 		return_list=[]
 
-		for num in range(0,n+1):
-			if(num<2):
-				continue
-			elif(num==2):
+		for num in possible_primes:
+			if(num==2):
 				return_list.append(num)
-			elif(num%2==0):
-				continue
+			
 				
 			else:
 				for divisor in range(2,num):
