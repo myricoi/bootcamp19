@@ -23,7 +23,7 @@ class Prime_test(unittest.TestCase):
 
 	def test_returns_empty_list_if_no_primes(self):
 		n=prime.gen_prime(1)
-		self.assertEqual(n,[],"The return value is expected to be correct for input 100")
+		self.assertEqual(n,[],"The return value is expected to be correct if no primes are found")
 
 
 
