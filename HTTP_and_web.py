@@ -1,10 +1,7 @@
-from socket import *
-serverName=gethostname()
-serverPort = 12000
-clientSocket=socket(AF_INET,SOCK_STREAM)
-clientSocket.connect((serverName,serverPort))
-sentence=input('Input lowercase sentence:')
-clientSocket.send(sentence.encode('ascii'))
-modifiedSentence=clientSocket.recv(1024).decode('ascii')
-print('From Server: ',modifiedSentence)
-clientSocket.close()
+import requests
+print("These are the people and crafts in the space right now\n\n")
+response=requests.get("http://api.open-notify.org/astros.json")
+data = response.json()
+for people in data['people']:
+	for item,value in people.items():
+		print(item,": ",value)
